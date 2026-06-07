@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我 - Zane W | 王兴正</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zane: {
+                            dark: '#0F172A',    
+                            primary: '#165DFF', 
+                            light: '#F8FAFC',
+                            gray: '#64748B'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            }
+            .bg-blur {
+                backdrop-filter: blur(8px);
+            }
+            .scroll-smooth {
+                scroll-behavior: smooth;
+            }
+            .fade-in {
+                animation: fadeIn 0.8s ease-out forwards;
+            }
+            .slide-up {
+                animation: slideUp 0.6s ease-out forwards;
+            }
+            .scale-in {
+                animation: scaleIn 0.5s ease-out forwards;
+            }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="bg-zane-dark text-zane-light font-sans scroll-smooth">
+    <!-- 页面加载动画 -->
+    <div id="loader" class="fixed inset-0 bg-zane-dark flex items-center justify-center z-[100]">
+        <div class="flex flex-col items-center">
+            <div class="w-16 h-16 border-4 border-zane-primary border-t-transparent rounded-full animate-spin mb-4"></div>
+            <p class="text-zane-primary text-lg font-bold">加载中...</p>
+        </div>
+    </div>
+    <!-- 固定导航栏 -->
+    <header class="fixed w-full top-0 z-50 bg-zane-dark/80 bg-blur">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <i class="fa-solid fa-user-circle text-2xl text-zane-primary"></i>
+                <h1 class="text-xl md:text-2xl font-bold text-zane-primary">Zane W</h1>
+            </a>
+            
+            <nav class="hidden md:flex gap-6">
+                <a href="index.html" class="hover:text-zane-primary transition-colors">首页</a>
+                <a href="about.html" class="text-zane-primary">关于我</a>
+                <a href="idol.html" class="hover:text-zane-primary transition-colors">我的榜样</a>
+                <a href="growth.html" class="hover:text-zane-primary transition-colors">成长路径</a>
+                <a href="contact.html" class="hover:text-zane-primary transition-colors">联系我</a>
+            </nav>
+            
+            <button id="menuBtn" class="md:hidden text-2xl">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        
+        <div id="mobileMenu" class="hidden md:hidden bg-zane-dark/95 bg-blur absolute w-full">
+            <div class="container mx-auto px-4 py-3 flex flex-col gap-3">
+                <a href="index.html" class="py-2 hover:text-zane-primary transition-colors">首页</a>
+                <a href="about.html" class="py-2 text-zane-primary">关于我</a>
+                <a href="idol.html" class="py-2 hover:text-zane-primary transition-colors">我的榜样</a>
+                <a href="growth.html" class="py-2 hover:text-zane-primary transition-colors">成长路径</a>
+                <a href="contact.html" class="py-2 hover:text-zane-primary transition-colors">联系我</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 面包屑导航 -->
+    <section class="pt-24 pb-8 container mx-auto px-4">
+        <div class="text-zane-gray">
+            <a href="index.html" class="hover:text-zane-primary">首页</a> / <span class="text-zane-primary">关于我</span>
+        </div>
+    </section>
+
+    <!-- 关于我主内容 -->
+    <section class="py-8 container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-zane-primary mb-6">关于我</h2>
+            <div class="w-24 h-1 bg-zane-primary mx-auto mb-8"></div>
+            <p class="max-w-3xl mx-auto text-zane-gray text-lg">
+                我无法用一句话定义自己，但我可以讲讲我做过的事，这些经历，拼凑出了现在的我。
+            </p>
+        </div>
+
+        <!-- 经历卡片网格 -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <!-- 少年时代 -->
+            <div class="bg-gray-800/50 p-8 rounded-lg border border-gray-700 transition-all duration-300 hover:scale-105 hover:shadow-zane-primary/30 hover:border-zane-primary/50 hover:bg-gray-800/80">
+                <div class="text-zane-primary text-5xl mb-6 transition-transform duration-300 hover:scale-110 hover:text-blue-400"><i class="fa-solid fa-gamepad"></i></div>
+                <h3 class="text-2xl font-bold mb-4">少年探索</h3>
+                <p class="text-zane-gray mb-4">
+                    初二沉迷火影手游，靠代练每月稳定收入1000+，还搭建了病毒式外包销售团队，第一次尝到商业的甜头。
+                </p>
+                <p class="text-zane-gray text-sm">
+                    14岁，第一次靠自己的能力赚到钱
+                </p>
+            </div>
+
+            <!-- 家庭超市 -->
+            <div class="bg-gray-800/50 p-8 rounded-lg border border-gray-700 transition-all duration-300 hover:scale-105 hover:shadow-zane-primary/30 hover:border-zane-primary/50 hover:bg-gray-800/80">
+                <div class="text-zane-primary text-5xl mb-6 transition-transform duration-300 hover:scale-110 hover:text-blue-400"><i class="fa-solid fa-store"></i></div>
+                <h3 class="text-2xl font-bold mb-4">线下运营</h3>
+                <p class="text-zane-gray mb-4">
+                    帮父母打理超市，全流程操盘营销、进货、店面设计，和形形色色的人打交道，练就了快速破冰的社交能力。
+                </p>
+                <p class="text-zane-gray text-sm">
+                    学会了如何与人打交道，如何运营一家店
+                </p>
+            </div>
+
+            <!-- 大学兼职 -->
+            <div class="bg-gray-800/50 p-8 rounded-lg border border-gray-700 transition-all duration-300 hover:scale-105 hover:shadow-zane-primary/30 hover:border-zane-primary/50 hover:bg-gray-800/80">
+                <div class="text-zane-primary text-5xl mb-6"><i class="fa-solid fa-briefcase"></i></div>
+                <h3 class="text-2xl font-bold mb-4">多元实践</h3>
+                <p class="text-zane-gray mb-4">
+                    大学期间尝试了无数兼职：服装销管、盲盒地摊、老花镜地推、摄影助理、品牌营销，体验了不同的行业。
+                </p>
+                <p class="text-zane-gray text-sm">
+                    用最短的时间，体验了最多的可能性
+                </p>
+            </div>
+
+            <!-- GAP期探索 -->
+            <div class="bg-gray-800/50 p-8 rounded-lg hover:scale-105 transition-transform border border-gray-700">
+                <div class="text-zane-primary text-5xl mb-6"><i class="fa-solid fa-shop"></i></div>
+                <h3 class="text-2xl font-bold mb-4">自主创业</h3>
+                <p class="text-zane-gray mb-4">
+                    GAP期尝试开网店，月入1000左右，但遇到增长瓶颈，果断止损，学会了及时放弃错误的方向。
+                </p>
+                <p class="text-zane-gray text-sm">
+                    不是所有尝试都有结果，但每一次都有成长
+                </p>
+            </div>
+
+            <!-- 职场副业 -->
+            <div class="bg-gray-800/50 p-8 rounded-lg hover:scale-105 transition-transform border border-gray-700">
+                <div class="text-zane-primary text-5xl mb-6"><i class="fa-solid fa-handshake"></i></div>
+                <h3 class="text-2xl font-bold mb-4">信任变现</h3>
+                <p class="text-zane-gray mb-4">
+                    倒卖格力年终奖福利，靠信任收售冰箱，用押金模式缓冲现金流，2天流水25000+，盈利5000+。
+                </p>
+                <p class="text-zane-gray text-sm">
+                    发现了信任的价值，以及现金流的重要性
+                </p>
+            </div>
+
+            <!-- 自媒体探索 -->
+            <div class="bg-gray-800/50 p-8 rounded-lg hover:scale-105 transition-transform border border-gray-700">
+                <div class="text-zane-primary text-5xl mb-6"><i class="fa-solid fa-pen-to-square"></i></div>
+                <h3 class="text-2xl font-bold mb-4">内容创作</h3>
+                <p class="text-zane-gray mb-4">
+                    外企工作期间，用业余时间做自媒体，积累了上千粉丝，打造自己的产品并完成变现，抓住了表达的红利。
+                </p>
+                <p class="text-zane-gray text-sm">
+                    第一次感受到个人影响力的力量
+                </p>
+            </div>
+        </div>
+
+        <!-- 经历时间轴 -->
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-3xl font-bold text-zane-primary mb-8 text-center">我的成长时间线</h3>
+            <div class="relative">
+                <!-- 时间轴主线 -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-zane-primary/30"></div>
+                
+                <!-- 时间节点1 -->
+                <div class="mb-12 flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 md:pr-12 text-right mb-6 md:mb-0">
+                        <h4 class="text-xl font-bold text-zane-primary">2015年</h4>
+                        <p class="text-zane-gray mt-2">初二，火影手游代练，第一次靠自己赚到第一桶金</p>
+                    </div>
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-zane-primary z-10"></div>
+                    <div class="md:w-1/2 md:pl-12"></div>
+                </div>
+                
+                <!-- 时间节点2 -->
+                <div class="mb-12 flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 md:pr-12 order-2 md:order-1"></div>
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-zane-primary z-10"></div>
+                    <div class="md:w-1/2 md:pl-12 text-left mb-6 md:mb-0 order-1 md:order-2">
+                        <h4 class="text-xl font-bold text-zane-primary">2017年</h4>
+                        <p class="text-zane-gray mt-2">帮父母打理超市，全流程运营，学会了社交与管理</p>
+                    </div>
+                </div>
+                
+                <!-- 时间节点3 -->
+                <div class="mb-12 flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 md:pr-12 text-right mb-6 md:mb-0">
+                        <h4 class="text-xl font-bold text-zane-primary">2020-2024年</h4>
+                        <p class="text-zane-gray mt-2">大学期间，尝试各种兼职，探索不同的行业可能性</p>
+                    </div>
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-zane-primary z-10"></div>
+                    <div class="md:w-1/2 md:pl-12"></div>
+                </div>
+                
+                <!-- 时间节点4 -->
+                <div class="mb-12 flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 md:pr-12 order-2 md:order-1"></div>
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-zane-primary z-10"></div>
+                    <div class="md:w-1/2 md:pl-12 text-left mb-6 md:mb-0 order-1 md:order-2">
+                        <h4 class="text-xl font-bold text-zane-primary">2025年</h4>
+                        <p class="text-zane-gray mt-2">职场副业，倒卖格力福利，2天盈利5000+，验证了信任的价值</p>
+                    </div>
+                </div>
+                
+                <!-- 时间节点5 -->
+                <div class="mb-12 flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 md:pr-12 text-right mb-6 md:mb-0">
+                        <h4 class="text-xl font-bold text-zane-primary">GAP</h4>
+                        <p class="text-zane-gray mt-2">GAP期，尝试开网店，学会了及时止损</p>
+                    </div>
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-zane-primary z-10"></div>
+                    <div class="md:w-1/2 md:pl-12"></div>
+                </div>
+                
+                <!-- 时间节点6 -->
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 md:pr-12 order-2 md:order-1"></div>
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-zane-primary z-10"></div>
+                    <div class="md:w-1/2 md:pl-12 text-left mb-6 md:mb-0 order-1 md:order-2">
+                        <h4 class="text-xl font-bold text-zane-primary">2026年</h4>
+                        <p class="text-zane-gray mt-2">外企工作，业余做自媒体，积累千粉并变现，开始聚焦具身智能</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 配图模块 -->
+    <section class="py-16 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h3 class="text-3xl font-bold text-zane-primary mb-8 text-center">我的成长足迹</h3>
+            <div class="rounded-lg overflow-hidden shadow-2xl max-w-5xl mx-auto">
+                <img src="https://picsum.photos/seed/zaneabout/1200/800" alt="成长足迹" class="w-full h-auto">
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-zane-dark py-10 text-center border-t border-zane-primary/20">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center gap-6 text-2xl mb-4">
+                <a href="wechat.html" class="text-green-500 hover:text-green-400" title="微信: dfdzlaile"><i class="fa-brands fa-weixin"></i></a>
+                <a href="#" class="text-zane-primary hover:text-blue-400"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="javascript:void(0)" class="text-zane-primary hover:text-blue-400" title="电话: 18264708118" onclick="copyPhone()"><i class="fa-solid fa-phone"></i></a>
+            </div>
+            <p class="text-zane-gray mb-2">© 2026 Zane W | 持续成长，与时间做朋友</p>
+            <p class="text-zane-gray text-sm">邮箱: 2464374766@qq.com</p>
+        </div>
+    </footer>
+
+    <!-- 回到顶部按钮 -->
+    <button id="backToTop" class="fixed bottom-6 right-6 w-12 h-12 bg-zane-primary rounded-full shadow-lg flex items-center justify-center text-white opacity-0 invisible transition-all duration-300 hover:bg-blue-600 hover:scale-110 z-50">
+        <i class="fa-solid fa-arrow-up text-xl"></i>
+    </button>
+
+    <script>
+        // 页面加载完成后隐藏加载动画
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 500);
+            }, 800);
+        });
+
+        function copyPhone() {
+            const phone = '18264708118';
+            navigator.clipboard.writeText(phone).then(() => {
+                alert('电话号码已复制: ' + phone);
+            }).catch(err => {
+                console.error('复制失败:', err);
+            });
+            return false;
+        }
+        
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = menuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        const navLinks = mobileMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuBtn.querySelector('i').classList.replace('fa-times', 'fa-bars');
+            });
+        });
+
+        // 回到顶部按钮
+        const backToTopBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+            }
+        });
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
