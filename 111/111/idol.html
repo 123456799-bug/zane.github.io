@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的榜样 - Zane W | 王兴正</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zane: {
+                            dark: '#0F172A',    
+                            primary: '#165DFF', 
+                            light: '#F8FAFC',
+                            gray: '#64748B'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            }
+            .bg-blur {
+                backdrop-filter: blur(8px);
+            }
+            .scroll-smooth {
+                scroll-behavior: smooth;
+            }
+            .fade-in {
+                animation: fadeIn 0.8s ease-out forwards;
+            }
+            .slide-up {
+                animation: slideUp 0.6s ease-out forwards;
+            }
+            .scale-in {
+                animation: scaleIn 0.5s ease-out forwards;
+            }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="bg-zane-dark text-zane-light font-sans scroll-smooth">
+    <!-- 页面加载动画 -->
+    <div id="loader" class="fixed inset-0 bg-zane-dark flex items-center justify-center z-[100]">
+        <div class="flex flex-col items-center">
+            <div class="w-16 h-16 border-4 border-zane-primary border-t-transparent rounded-full animate-spin mb-4"></div>
+            <p class="text-zane-primary text-lg font-bold">加载中...</p>
+        </div>
+    </div>
+    <!-- 固定导航栏 -->
+    <header class="fixed w-full top-0 z-50 bg-zane-dark/80 bg-blur">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <i class="fa-solid fa-user-circle text-2xl text-zane-primary"></i>
+                <h1 class="text-xl md:text-2xl font-bold text-zane-primary">Zane W</h1>
+            </a>
+            
+            <nav class="hidden md:flex gap-6">
+                <a href="index.html" class="hover:text-zane-primary transition-colors">首页</a>
+                <a href="about.html" class="hover:text-zane-primary transition-colors">关于我</a>
+                <a href="idol.html" class="text-zane-primary">我的榜样</a>
+                <a href="growth.html" class="hover:text-zane-primary transition-colors">成长路径</a>
+                <a href="contact.html" class="hover:text-zane-primary transition-colors">联系我</a>
+            </nav>
+            
+            <button id="menuBtn" class="md:hidden text-2xl">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        
+        <div id="mobileMenu" class="hidden md:hidden bg-zane-dark/95 bg-blur absolute w-full">
+            <div class="container mx-auto px-4 py-3 flex flex-col gap-3">
+                <a href="index.html" class="py-2 hover:text-zane-primary transition-colors">首页</a>
+                <a href="about.html" class="py-2 hover:text-zane-primary transition-colors">关于我</a>
+                <a href="idol.html" class="py-2 text-zane-primary">我的榜样</a>
+                <a href="growth.html" class="py-2 hover:text-zane-primary transition-colors">成长路径</a>
+                <a href="contact.html" class="py-2 hover:text-zane-primary transition-colors">联系我</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 面包屑导航 -->
+    <section class="pt-24 pb-8 container mx-auto px-4">
+        <div class="text-zane-gray">
+            <a href="index.html" class="hover:text-zane-primary">首页</a> / <span class="text-zane-primary">我的榜样</span>
+        </div>
+    </section>
+
+    <!-- 我的榜样主内容 -->
+    <section class="py-8 container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-zane-primary mb-6">我的榜样</h2>
+            <div class="w-24 h-1 bg-zane-primary mx-auto mb-8"></div>
+            <p class="max-w-3xl mx-auto text-zane-gray text-lg">
+                以强者为镜，取其内核，不做复刻。我从他们身上汲取力量，走出属于自己的路。
+            </p>
+        </div>
+
+        <!-- 榜样卡片网格 -->
+        <div class="grid md:grid-cols-3 gap-8 mb-16">
+            <!-- 巴菲特 & 芒格 -->
+            <div class="group rounded-lg overflow-hidden shadow-lg hover:shadow-zane-primary/20 transition-shadow">
+                <div class="relative h-72 overflow-hidden">
+                    <img src="investors.jpg" alt="巴菲特 & 查理芒格" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-70"></div>
+                    <h3 class="absolute bottom-4 left-4 text-2xl font-bold text-zane-primary text-shadow">巴菲特 & 芒格</h3>
+                </div>
+                <div class="p-6 bg-gray-800/80">
+                    <p class="text-zane-gray mb-4">
+                        他们教会我长期主义，抵制消费主义，与时间做朋友。
+                    </p>
+                    <div class="flex items-center text-zane-primary/80">
+                        <i class="fa-solid fa-chart-line mr-2"></i>
+                        <span>美股投资，收益<span class="font-bold">超30%</span></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 孙宇晨 -->
+            <div class="group rounded-lg overflow-hidden shadow-lg hover:shadow-zane-primary/20 transition-shadow">
+                <div class="relative h-72 overflow-hidden">
+                    <img src="tronfounder.jpg" alt="孙宇晨" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-70"></div>
+                    <h3 class="absolute bottom-4 left-4 text-2xl font-bold text-zane-primary text-shadow">孙宇晨</h3>
+                </div>
+                <div class="p-6 bg-gray-800/80">
+                    <p class="text-zane-gray mb-4">
+                        他让我看到个人影响力的杠杆，抓住这个表达红利的时代。
+                    </p>
+                    <div class="flex items-center text-zane-primary/80">
+                        <i class="fa-solid fa-robot mr-2"></i>
+                        <span>聚焦加密，<span class="font-bold">ALL in 具身智能</span></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 马斯克 -->
+            <div class="group rounded-lg overflow-hidden shadow-lg hover:shadow-zane-primary/20 transition-shadow">
+                <div class="relative h-72 overflow-hidden">
+                    <img src="spacex.jpg" alt="马斯克" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-70"></div>
+                    <h3 class="absolute bottom-4 left-4 text-2xl font-bold text-zane-primary text-shadow">马斯克</h3>
+                </div>
+                <div class="p-6 bg-gray-800/80">
+                    <p class="text-zane-gray mb-4">
+                        他的第一性原理、五步工作法，让我学会直击本质。
+                    </p>
+                    <div class="flex items-center text-zane-primary/80">
+                        <i class="fa-solid fa-rocket mr-2"></i>
+                        <span>投资特斯拉/Space X，坚信AI未来</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 榜样的启示 -->
+        <div class="max-w-5xl mx-auto bg-gray-800/50 rounded-xl p-8 border border-gray-700">
+            <h3 class="text-3xl font-bold text-zane-primary mb-6 text-center">我从他们身上学到了什么</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <img src="https://picsum.photos/seed/zaneidol/800/600" alt="榜样的启示" class="rounded-lg w-full h-auto">
+                </div>
+                <div class="flex flex-col justify-center">
+                    <ul class="space-y-4 text-zane-gray">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check-circle text-zane-primary mt-1 mr-3"></i>
+                            <div>
+                                <span class="font-bold text-zane-primary">长期主义</span>：不要被短期利益诱惑，坚持做正确的事，时间会给你回报
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check-circle text-zane-primary mt-1 mr-3"></i>
+                            <div>
+                                <span class="font-bold text-zane-primary">个人杠杆</span>：在这个表达红利的时代，放大自己的影响力，撬动更大的价值
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check-circle text-zane-primary mt-1 mr-3"></i>
+                            <div>
+                                <span class="font-bold text-zane-primary">第一性原理</span>：抛开表象，直击事物本质，用最基础的原理重新构建解决方案
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check-circle text-zane-primary mt-1 mr-3"></i>
+                            <div>
+                                <span class="font-bold text-zane-primary">未来视野</span>：相信科技的力量，提前布局未来，抓住AI带来的时代机遇
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="growth.html" class="mt-8 inline-block bg-zane-primary text-white px-6 py-3 rounded-full font-bold hover:bg-blue-600 transition-colors">
+                        查看我的成长路径
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-zane-dark py-10 text-center border-t border-zane-primary/20 mt-16">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center gap-6 text-2xl mb-4">
+                <a href="wechat.html" class="text-green-500 hover:text-green-400" title="微信: dfdzlaile"><i class="fa-brands fa-weixin"></i></a>
+                <a href="#" class="text-zane-primary hover:text-blue-400"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="javascript:void(0)" class="text-zane-primary hover:text-blue-400" title="电话: 18264708118" onclick="copyPhone()"><i class="fa-solid fa-phone"></i></a>
+            </div>
+            <p class="text-zane-gray mb-2">© 2026 Zane W | 持续成长，与时间做朋友</p>
+            <p class="text-zane-gray text-sm">邮箱: 2464374766@qq.com</p>
+        </div>
+    </footer>
+
+    <!-- 回到顶部按钮 -->
+    <button id="backToTop" class="fixed bottom-6 right-6 w-12 h-12 bg-zane-primary rounded-full shadow-lg flex items-center justify-center text-white opacity-0 invisible transition-all duration-300 hover:bg-blue-600 hover:scale-110 z-50">
+        <i class="fa-solid fa-arrow-up text-xl"></i>
+    </button>
+
+    <script>
+        // 页面加载完成后隐藏加载动画
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 500);
+            }, 800);
+        });
+
+        function copyPhone() {
+            const phone = '18264708118';
+            navigator.clipboard.writeText(phone).then(() => {
+                alert('电话号码已复制: ' + phone);
+            }).catch(err => {
+                console.error('复制失败:', err);
+            });
+            return false;
+        }
+        
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = menuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        const navLinks = mobileMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuBtn.querySelector('i').classList.replace('fa-times', 'fa-bars');
+            });
+        });
+
+        // 回到顶部按钮
+        const backToTopBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+            }
+        });
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
